@@ -814,9 +814,8 @@ while run:
           world = World()
           player, health_bar = world.process_data(world_data)
 
-    input_from_q = outgoing_queue.get_nowait()
-    if(input_from_q != queue.Empty):
-      if input_from_q != None:
+    try:
+        input_from_q = outgoing_queue.get_nowait()
         if input_from_q == 'l':
           moving_left = True
           moving_right = False
@@ -829,6 +828,9 @@ while run:
           player.jump = True
         elif input_from_q == 'j':
           player.jump = True
+    except queue.Empty:
+        pass
+        
 
   for event in pygame.event.get():
       #quit game
