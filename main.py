@@ -8,7 +8,7 @@ app = FastAPI()
 # l: the mobile phone user will be assigned to move left
 # u: the mobile phone user will be assigned to move up
 # s: the mobile phone user will be assigned to shoot
-actions = ["r", "l", "u", "s"]
+actions = ["s", "u", "l", "r"]
 
 @app.get("/actions")
 def read_root():
